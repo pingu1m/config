@@ -1,0 +1,334 @@
+return {
+  -- {
+  --   "hrsh7th/nvim-cmp",
+  --   version = false,
+  --   event = "InsertEnter",
+  --   dependencies = {
+  --     "hrsh7th/cmp-nvim-lsp",
+  --     "L3MON4D3/LuaSnip",
+  --     "saadparwaiz1/cmp_luasnip",
+  --     "onsails/lspkind.nvim",
+  --     {
+  --       "Saecki/crates.nvim",
+  --       event = { "BufRead Cargo.toml" },
+  --       config = true,
+  --     },
+  --   },
+  --   opts = function()
+  --     -- nvim-cmp setup
+  --     local cmp = require("cmp")
+  --     local luasnip = require("luasnip")
+  --     local lspkind = require("lspkind")
+  --     -- opts.sources = cmp.config.sources(vim.list_extend(opts.sources, {
+  --     -- }))
+  --     return {
+  --       snippet = {
+  --         expand = function(args)
+  --           luasnip.lsp_expand(args.body)
+  --         end,
+  --       },
+  --       mapping = cmp.mapping.preset.insert({
+  --         ["<C-n"] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert }),
+  --         ["<C-p"] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Insert }),
+  --         ["<C-b>"] = cmp.mapping.scroll_docs(-4),
+  --         ["<C-f>"] = cmp.mapping.scroll_docs(4),
+  --         ["<C-Space>"] = cmp.mapping.complete(),
+  --         ["<CR>"] = cmp.mapping.confirm({
+  --           behavior = cmp.ConfirmBehavior.Replace,
+  --           select = false,
+  --         }),
+  --         ["<C-e>"] = cmp.mapping.abort(),
+  --         ["<Tab>"] = cmp.mapping(function(fallback)
+  --           -- if cmp.visible() then
+  --           --   cmp.select_next_item()
+  --           if luasnip.expand_or_jumpable() then
+  --             luasnip.expand_or_jump()
+  --           else
+  --             fallback()
+  --           end
+  --         end, { "i", "s" }),
+  --         ["<S-Tab>"] = cmp.mapping(function(fallback)
+  --           -- if cmp.visible() then
+  --           --   cmp.select_prev_item()
+  --           if luasnip.jumpable(-1) then
+  --             luasnip.jump(-1)
+  --           else
+  --             fallback()
+  --           end
+  --         end, { "i", "s" }),
+  --       }),
+  --       sources = {
+  --         { name = "nvim_lsp" },
+  --         { name = "luasnip" },
+  --         { name = "buffer" },
+  --         { name = "path" },
+  --         { name = "crates" },
+  --       },
+  --       formatting = {
+  --         format = lspkind.cmp_format({
+  --           mode = "symbol_text",
+  --           maxwidth = 50,
+  --           ellipsis_car = "...",
+  --         }),
+  --       },
+  --     }
+  --   end,
+  -- },
+  -- {
+  --   "williamboman/mason.nvim",
+  --   optional = true,
+  --   opts = function(_, opts)
+  --     if type(opts.ensure_installed) == "table" then
+  --       vim.list_extend(opts.ensure_installed, {
+  --         -- python
+  --         "ruff-lsp",
+  --         -- "pyright",
+  --
+  --         -- lua
+  --         "lua-language-server",
+  --
+  --         -- shell
+  --         "bash-language-server",
+  --
+  --         -- docker
+  --         "dockerfile-language-server",
+  --
+  --         -- rust
+  --         "rust-analyzer",
+  --
+  --         -- go
+  --         -- "gopls",
+  --
+  --         -- protobuf
+  --         -- "buf",
+  --         -- "protolint",
+  --         -- "buf-language-server",
+  --       })
+  --       -- vim.list_extend(opts.ensure_installed, { "codelldb" })
+  --     end
+  --   end,
+  -- },
+  -- {
+  --   "nvim-treesitter/nvim-treesitter",
+  --   opts = function(_, opts)
+  --     if type(opts.ensure_installed) == "table" then
+  --       vim.list_extend(opts.ensure_installed, { "ninja", "python", "rst", "toml", "ron", "rust" })
+  --     end
+  --   end,
+  -- },
+  -- {
+  --   "neovim/nvim-lspconfig",
+  --   opts = {
+  --     servers = {
+  --       pyright = {
+  --         single_file_support = true,
+  --         settings = {
+  --           pyright = {
+  --             disableLanguageServices = false,
+  --             disableOrganizeImports = false,
+  --           },
+  --           python = {
+  --             analysis = {
+  --               autoImportCompletions = true,
+  --               autoSearchPaths = true,
+  --               diagnosticMode = "workspace", -- openFilesOnly, workspace
+  --               typeCheckingMode = "basic", -- off, basic, strict
+  --               useLibraryCodeForTypes = true,
+  --             },
+  --           },
+  --         },
+  --       },
+  --       ruff_lsp = {},
+  --       -- ruff_lsp = function()
+  --       --   require("lazyvim.util").on_attach(function(client, _)
+  --       --     if client.name == "ruff_lsp" then
+  --       --       -- Disable hover in favor of Pyright
+  --       --       client.server_capabilities.hoverProvider = false
+  --       --     end
+  --       --   end)
+  --       -- end,
+  --       -- pyright = function()
+  --       --   require("lazyvim.util").on_attach(function(client, _)
+  --       --     if client.name == "pyright" then
+  --       --       -- disable hover in favor of jedi-language-server
+  --       --       client.server_capabilities.hoverProvider = false
+  --       --     end
+  --       --   end)
+  --       -- end,
+  --       rust_analyzer = {
+  --         keys = {
+  --           { "K", "<cmd>RustHoverActions<cr>", desc = "Hover Actions (Rust)" },
+  --           { "<leader>cR", "<cmd>RustCodeAction<cr>", desc = "Code Action (Rust)" },
+  --           { "<leader>dr", "<cmd>RustDebuggables<cr>", desc = "Run Debuggables (Rust)" },
+  --         },
+  --         settings = {
+  --           ["rust-analyzer"] = {
+  --             cargo = {
+  --               allFeatures = true,
+  --               loadOutDirsFromCheck = true,
+  --               runBuildScripts = true,
+  --             },
+  --             -- Add clippy lints for Rust.
+  --             checkOnSave = {
+  --               allFeatures = true,
+  --               command = "clippy",
+  --               extraArgs = { "--no-deps" },
+  --             },
+  --             procMacro = {
+  --               enable = true,
+  --               ignored = {
+  --                 ["async-trait"] = { "async_trait" },
+  --                 ["napi-derive"] = { "napi" },
+  --                 ["async-recursion"] = { "async_recursion" },
+  --               },
+  --             },
+  --           },
+  --         },
+  --       },
+  --       taplo = {
+  --         keys = {
+  --           {
+  --             "K",
+  --             function()
+  --               if vim.fn.expand("%:t") == "Cargo.toml" and require("crates").popup_available() then
+  --                 require("crates").show_popup()
+  --               else
+  --                 vim.lsp.buf.hover()
+  --               end
+  --             end,
+  --             desc = "Show Crate Documentation",
+  --           },
+  --         },
+  --       },
+  --     },
+  --     setup = {
+  --       pyright = function(_, opts) end,
+  --       rust_analyzer = function(_, opts)
+  --         local rust_tools_opts = require("lazyvim.util").opts("rust-tools.nvim")
+  --         require("rust-tools").setup(vim.tbl_deep_extend("force", rust_tools_opts or {}, { server = opts }))
+  --         return true
+  --       end,
+  --       ruff_lsp = function()
+  --         require("lazyvim.util").on_attach(function(client, _)
+  --           if client.name == "ruff_lsp" then
+  --             -- Disable hover in favor of Pyright
+  --             client.server_capabilities.hoverProvider = false
+  --           end
+  --         end)
+  --       end,
+  --     },
+  --   },
+  -- },
+  -- {
+  --   "nvim-neotest/neotest",
+  --   optional = true,
+  --   dependencies = {
+  --     "rouge8/neotest-rust",
+  --     "nvim-neotest/neotest-python",
+  --   },
+  --   opts = {
+  --     adapters = {
+  --       ["neotest-rust"] = {},
+  --       ["neotest-python"] = {
+  --         -- Here you can specify the settings for the adapter, i.e.
+  --         -- runner = "pytest",
+  --         -- python = ".venv/bin/python",
+  --       },
+  --     },
+  --   },
+  -- },
+  -- {
+  --   "rouge8/neotest-rust",
+  -- },
+  -- {
+  --   "nvim-neotest/neotest-python",
+  -- },
+  -- {
+  --   "mfussenegger/nvim-dap",
+  --   optional = true,
+  --   dependencies = {
+  --     "mfussenegger/nvim-dap-python",
+  --   -- stylua: ignore
+  --   keys = {
+  --     { "<leader>dPt", function() require('dap-python').test_method() end, desc = "Debug Method" },
+  --     { "<leader>dPc", function() require('dap-python').test_class() end, desc = "Debug Class" },
+  --   },
+  --     config = function()
+  --       local path = require("mason-registry").get_package("debugpy"):get_install_path()
+  --       require("dap-python").setup(path .. "/venv/bin/python")
+  --     end,
+  --   },
+  -- },
+  -- {
+  --   "mfussenegger/nvim-dap-python",
+  -- -- stylua: ignore
+  -- keys = {
+  --   { "<leader>dPt", function() require('dap-python').test_method() end, desc = "Debug Method" },
+  --   { "<leader>dPc", function() require('dap-python').test_class() end, desc = "Debug Class" },
+  -- },
+  --   config = function()
+  --     local path = require("mason-registry").get_package("debugpy"):get_install_path()
+  --     require("dap-python").setup(path .. "/venv/bin/python")
+  --   end,
+  -- },
+  -- {
+  --   "linux-cultist/venv-selector.nvim",
+  --   cmd = "VenvSelect",
+  --   opts = {},
+  --   keys = { { "<leader>cv", "<cmd>:VenvSelect<cr>", desc = "Select VirtualEnv" } },
+  -- },
+  -- {
+  --   "jose-elias-alvarez/null-ls.nvim",
+  --   opts = function(_, opts)
+  --     local nls = require("null-ls")
+  --     opts.sources = vim.list_extend(opts.sources, {
+  --       -- Order of formatters matters. They are used in order of appearance.
+  --       nls.builtins.formatting.ruff,
+  --       nls.builtins.formatting.black,
+  --       -- nls.builtins.formatting.black.with({
+  --       --   extra_args = { "--preview" },
+  --       -- }),
+  --       -- nls.builtins.diagnostics.ruff,
+  --     })
+  --   end,
+  -- },
+  -- {
+  --   "Saecki/crates.nvim",
+  --   event = { "BufRead Cargo.toml" },
+  --   config = true,
+  -- },
+  -- {
+  --   "simrat39/rust-tools.nvim",
+  --   lazy = true,
+  --   opts = function()
+  --     local ok, mason_registry = pcall(require, "mason-registry")
+  --     local adapter ---@type any
+  --     if ok then
+  --       -- rust tools configuration for debugging support
+  --       local codelldb = mason_registry.get_package("codelldb")
+  --       local extension_path = codelldb:get_install_path() .. "/extension/"
+  --       local codelldb_path = extension_path .. "adapter/codelldb"
+  --       local liblldb_path = vim.fn.has("mac") == 1 and extension_path .. "lldb/lib/liblldb.dylib"
+  --         or extension_path .. "lldb/lib/liblldb.so"
+  --       adapter = require("rust-tools.dap").get_codelldb_adapter(codelldb_path, liblldb_path)
+  --     end
+  --     return {
+  --       dap = {
+  --         adapter = adapter,
+  --       },
+  --       tools = {
+  --         on_initialized = function()
+  --           vim.cmd([[
+  --               augroup RustLSP
+  --                 autocmd CursorHold                      *.rs silent! lua vim.lsp.buf.document_highlight()
+  --                 autocmd CursorMoved,InsertEnter         *.rs silent! lua vim.lsp.buf.clear_references()
+  --                 autocmd BufEnter,CursorHold,InsertLeave *.rs silent! lua vim.lsp.codelens.refresh()
+  --               augroup END
+  --             ]])
+  --         end,
+  --       },
+  --     }
+  --   end,
+  --   config = function() end,
+  -- },
+}
