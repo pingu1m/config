@@ -1,0 +1,1 @@
+usage: ./install.sh [--with-lsp] [-h/--help]
