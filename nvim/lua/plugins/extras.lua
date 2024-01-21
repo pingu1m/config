@@ -151,10 +151,6 @@ return {
         require("luasnip.loaders.from_vscode").lazy_load()
       end,
     },
-    opts = {
-      history = true,
-      delete_check_events = "TextChanged",
-    },
     config = function()
       local ls = require("luasnip")
 
@@ -181,11 +177,7 @@ return {
           },
         },
       })
-
-      -- vim.keymap.set({ "i", "s" }, "<c-u>", '<cmd>lua require("luasnip.extras.select_choice")()<cr><C-c><C-c>')
-      -- vim.keymap.set({ "i", "s" }, "<A-y>", "<Esc>o", { silent = true })
-      -- vim.keymap.set("n", "<Leader><CR>", "<cmd>LuaSnipEdit<cr>", { silent = true, noremap = true })
-      -- vim.cmd([[autocmd BufEnter */snippets/*.lua nnoremap <silent> <buffer> <CR> /-- End Refactoring --<CR>O<Esc>O]])
+      -- TODO: add keybinding to quickly edit snippets
     end,
   -- stylua: ignore
   keys = {
