@@ -1,0 +1,27 @@
+{
+  "name": "rust10x",
+  "contributes": {
+    "snippets": [
+      {
+        "language": "rust",
+        "path": "./rust10x-common-rs.code-snippets"
+      },
+      {
+        "language": "rust",
+        "path": "./rust10x-main-rs.code-snippets"
+      },
+      {
+        "language": "rust",
+        "path": "./rust10x-error-rs.code-snippets"
+      },
+      {
+        "language": "toml",
+        "path": "./rust10x-cargo-toml.code-snippets"
+      },
+      {
+        "filename": ".gitignore",
+        "path": "./rust10x-gitignore.code-snippets"
+      }
+    ]
+  }
+}

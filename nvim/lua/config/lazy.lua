@@ -29,7 +29,7 @@ require("lazy").setup({
     -- version = "*", -- try installing the latest stable version for plugins that support semver
     keymaps = false, -- works
   },
-  install = { colorscheme = { "tokyonight", "habamax" } },
+  install = { colorscheme = { "slate", "tokyonight", "habamax" } },
   checker = { enabled = true }, -- automatically check for plugin updates
   performance = {
     rtp = {

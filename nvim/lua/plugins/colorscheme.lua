@@ -1,9 +1,9 @@
 Util = require("lazyvim.util")
 
 return {
-  -- { "LazyVim/LazyVim", opts = {
-  --   colorscheme = "tokyonight",
-  -- } },
+  { "LazyVim/LazyVim", opts = {
+    colorscheme = "kanagawa",
+  } },
   {
     "folke/tokyonight.nvim",
     opts = {
